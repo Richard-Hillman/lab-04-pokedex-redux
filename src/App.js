@@ -4,9 +4,6 @@ import MyHeader from  './MyHeader.js'
 import MyFooter from './MyFooter.js'
 import PokemonList from './PokemonList.js'
 import pokemon from './Data.js'
-import DropDown from './DropDown.js'
-import SearchRender from './SearchRender';
-
 
 export default class App extends React.Component {
 // This is the coo Zone, I think
@@ -26,16 +23,16 @@ state = {
         form:e.target.value
       })
     }
-
-    handleOrder = e => {
-      this.setState({
-        order: e.target.value
-      })
-    }
-
+    
     handleChange = e => {
       this.setState({
         filter: e.target.value
+      })
+    }
+    
+    handleOrder = e => {
+      this.setState({
+        order: e.target.value
       })
     }
 
@@ -49,35 +46,21 @@ state = {
   render() {
     return (
       <>
-      <h1>Confessions 2020: I Used to steal Pokemon Cards, I'm sorry</h1>   
      
       <div className="header">
-
-      <MyHeader /> 
-        {/* <SearchRender
-        handleSubmit={this.handleSubmit}
-        handleChange={this.handleChange}
-        handleChangeAttack={this.handleChangeAttack}
-        handleChangeDefense={this.handleChangeDefense}
-        />
-
-        <DropDown handlechange={this.handleChange} /> */}
+        <MyHeader /> 
       </div>
 
 {/* ===================================================================================================== */}
 
         <div className="main">
 
-        
-    
-       
-        
         <div className="pokemonMain">
-        <PokemonList
-         pokemon={pokemon}
-         filter={this.state.filter}
-         sortType={this.state.sortType}
-         order={this.state.order} />
+          <PokemonList
+          pokemon={pokemon}
+          filter={this.state.filter}
+          sortType={this.state.sortType}
+          order={this.state.order} />
         </div>
 
       
