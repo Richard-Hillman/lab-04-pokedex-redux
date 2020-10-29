@@ -27,34 +27,6 @@ state = {
       })
     }
 
-    handleChangeAttack = e => {
-      e.preventDefault();
-      this.setState({
-        form:e.target.value
-      })
-    }
-
-    handleChangeDefense = e => {
-      e.preventDefault();
-      this.setState({
-        form:e.target.value
-      })
-    }
-
-    handleChangeHP = e => {
-      e.preventDefault();
-      this.setState({
-        form:e.target.value
-      })
-    }
-
-    handleSubmit = e => {
-      e.preventDefault();
-      this.setState({
-        form:e.target.value
-      })
-    }
-
     handleOrder = e => {
       this.setState({
         order: e.target.value
@@ -77,25 +49,28 @@ state = {
   render() {
     return (
       <>
+      <h1>Confessions 2020: I Used to steal Pokemon Cards, I'm sorry</h1>   
      
-      <div>
-        <SearchRender
+      <div className="header">
+
+      <MyHeader /> 
+        {/* <SearchRender
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
         handleChangeAttack={this.handleChangeAttack}
         handleChangeDefense={this.handleChangeDefense}
         />
 
-        <DropDown handlechange={this.handleChange} />
+        <DropDown handlechange={this.handleChange} /> */}
       </div>
 
 {/* ===================================================================================================== */}
 
         <div className="main">
 
-        <h1>Confessions 2020: I Used to steal Pokemon Cards, I'm sorry</h1>   
+        
     
-        <MyHeader />  
+       
         
         <div className="pokemonMain">
         <PokemonList
@@ -109,8 +84,10 @@ state = {
         <sort 
         handleSortType={this.handleSortType}
         handleOrder={this.handleOrder} />
-
-        <MyFooter />
+       
+        <div className="footer">
+          <MyFooter />
+        </div>
 
        </div>
      </>
