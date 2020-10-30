@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
-import MyHeader from  './MyHeader.js'
-import MyFooter from './MyFooter.js'
-import PokemonList from './PokemonList.js'
-import pokemon from './Data.js'
-import Home from './Home.js'
-import Credits from './Credits.js'
+import MyHeader from  './MyHeader.js';
+import MyFooter from './MyFooter.js';
+import PokemonList from './PokemonList.js';
+import pokemon from './Data.js';
+import Home from './Home.js';
+import Credits from './Credits.js';
+import fetch from 'superagent';
 import {
   BrowserRouter as Router,
   Route,
@@ -17,39 +18,51 @@ import {
 export default class App extends React.Component {
 // This is the coo Zone, I think
 // set m zero state filter so all pokemon show on initial load
-state = { 
-  filter:'',
-  sortType:'',
-  order:'',
+  state = { 
+    pokemonData: [],
+    type:''
+  }
 
-  attack:'',
-  defense:'',
-}
+  componentDidMount = async () => {
+    const response = await fetch.get('https://alchemy-pokedex.herokuapp.com/api/pokedex');
+    this.setState({ pokemonData: response.body.results });
+  }
 
-    handleSubmit = e => {
+  handleClick = async (e) => {
+    e.preventDefault();
+    const response = await fetch.get('https://alchemy-pokedex.herokuapp.com/api/pokedex/types/${this.state.type}')
+    this.setState({ pokemonData: response.body.results });
+  }
+  
+  handleChange = (e) => {
+    this.setState({ type: e.target.value});
+  }
+
+  handleSubmit = async (e) => {
       e.preventDefault();
-      this.setState({
-        form:e.target.value
-      })
-    }
+      const response = await fetch.get('https://alchemy-pokedex.herokuapp.com/api/pokedex/types/${this.state.type}')
+      this.setState({ pokemonData: response.body.results });
+  }
+  
+}
     
-    handleChange = e => {
-      this.setState({
-        filter: e.target.value
-      })
-    }
+    // handleChange = e => {
+    //   this.setState({
+    //     filter: e.target.value
+    //   })
+    // }
     
-    handleOrder = e => {
-      this.setState({
-        order: e.target.value
-      })
-    }
+    // handleOrder = e => {
+    //   this.setState({
+    //     order: e.target.value
+    //   })
+    // }
 
-    handleSortType = e => {
-        this.setState({
-          sortType: e.target.value
-        })
-    }
+    // handleSortType = e => {
+    //     this.setState({
+    //       sortType: e.target.value
+    //     })
+    // }
 
 
   render() {
