@@ -4,6 +4,15 @@ import MyHeader from  './MyHeader.js'
 import MyFooter from './MyFooter.js'
 import PokemonList from './PokemonList.js'
 import pokemon from './Data.js'
+import Home from './Home.js'
+import Credits from './Credits.js'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom'
+// import FetchPage from './FetchPage.js'
+
 
 export default class App extends React.Component {
 // This is the coo Zone, I think
@@ -12,7 +21,7 @@ state = {
   filter:'',
   sortType:'',
   order:'',
-  inputValue:'',
+
   attack:'',
   defense:'',
 }
@@ -46,22 +55,48 @@ state = {
   render() {
     return (
       <>
-     
-      <div className="header">
-        <MyHeader /> 
-      </div>
+
 
 {/* ===================================================================================================== */}
 
         <div className="main">
+          <Router>
+          <MyHeader /> 
+            <Switch>
 
-        <div className="pokemonMain">
+              <Route
+                path="/"
+                exact
+                render={(routerProps) => <Home {...routerProps} />}
+                />
+
+              <Route
+                path="/Pokedex"
+                exact
+                render={(routerProps) => <PokemonList
+                  pokemon={pokemon}
+                  filter={this.state.filter}
+                  sortType={this.state.sortType}
+                  order={this.state.order} 
+                  {...routerProps} />}
+                />
+
+              <Route
+                path="/Credits"
+                exact
+                render={(routerProps) => <Credits {...routerProps} />}
+                />
+            </Switch>
+          </Router>
+
+
+        {/* <div className="pokemonMain">
           <PokemonList
           pokemon={pokemon}
           filter={this.state.filter}
           sortType={this.state.sortType}
           order={this.state.order} />
-        </div>
+        </div> */}
 
       
         <sort 

@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import DropDown from './DropDown.js';
 import SearchRender from './SearchRender.js'
-
+import Navigation from './Navigation'
 export default class MyHeader extends Component {
     render() {
         return (
             <div className="headerRendered">
 
                 <h1>Confessions 2020: I Used to steal Pokemon Cards, I'm sorry</h1>   
+                
+                <Navigation />
 
                 <div className="divSoup">
                     <div>
