@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import Navigation from './Navigation'
-import MyFooter from './MyFooter.js';
 import Home from './Pokedex.js';
 import Credits from './Credits.js';
 import {
