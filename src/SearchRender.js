@@ -5,10 +5,9 @@ export default class SearchRender extends Component {
         return (
             <div>
                 <form onSubmit={this.props.handleSubmit}>
-    
                      <label htmlFor="search">FIND YOUR POKEMON: </label>
                      <input type="text" onChange={this.props.handleChange}/> 
-                     <button>GO FIND</button>
+                     <button>submit</button>
                 </form>
             </div>
 
