@@ -1,47 +1,16 @@
-body {
-  background-color: goldenrod;
+.main{
+  background-color: cornflowerblue;
 }
 
-h1 {
-  display: flex;
-  justify-content: center;
+.nav {
+  background-color: yellow;
 }
-
-.pokemonMain {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  border: red solid 2px;
-  border-radius: 100px;
-  padding: 50px;
-  margin: 100px;
-  background-color: khaki;
-}
-
-/* .pokemonArticle {
-
-} */
-
 .header {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  background-color: indianred;
-}
+  background-color: crimson;
+  padding: 20px;
+ }
 
-
-.divSoup {
+.pokemonMap {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  margin: 20px;
-}
-
-.footer{
-  display: flex;
-  justify-content: center;
-  font-size: 40px;
-  margin: 50px;
-  background-color: lavenderblush;
+  flex-wrap: wrap;
 }

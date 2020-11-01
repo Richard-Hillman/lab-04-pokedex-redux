@@ -4,16 +4,20 @@ import { Link } from 'react-router-dom';
 export default class Navigation extends Component {
     render() {
         return (
-            <div>
-                <span>
+            <div className="nav">
+                
+                <div>
                     <Link to="/">HOME</Link>
-                </span>
-                <span>
+                </div>
+
+                <div>
                     <Link to ="/Pokedex">POKEDEX</Link>
-                </span>
-                <span>
+                </div>
+
+                <div>
                     <Link to ="/Credits">CREDITS</Link>
-                </span>
+                </div>
+
             </div>
         )
     }
